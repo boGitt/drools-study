@@ -12,10 +12,10 @@ import com.sample.step.a.StepA;
 
 rule "with StepA"
 lock-on-active true
-salience 101001021
+salience priority
     when
         //conditions
-        a : StepA( getCondition().getResult() )
+        a : StepA(priority:priority, getCondition().getResult() )
     then
         //actions
         a.execute();
@@ -24,11 +24,11 @@ end
 
 rule "StepA wired a author"
 lock-on-active true
-salience 101001021
+salience priority
     //include attributes such as "salience" here...
     when
         //conditions
-        a : StepA( getCondition().getParam1() == 2 )
+        a : StepA(priority:priority, getCondition().getParam1() == 2 )
     then
         //actions
         a.setAuthor("Sencd");

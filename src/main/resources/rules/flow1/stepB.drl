@@ -11,10 +11,10 @@ import com.sample.step.b.StepB;
 
 
 rule "with StepB or"
-salience 101001011
+salience priority
     when
         //conditions
-        b : StepB( getCondition().isC1() || getCondition().isC2() )
+        b : StepB(priority:priority, getCondition().isC1() || getCondition().isC2() )
     then
         //actions
         b.execute();
@@ -23,10 +23,10 @@ end
 
 
 rule "with StepB and"
-salience 101001011
+salience priority
     when
         //conditions
-        b : StepB( getCondition().isC1() && getCondition().isC2() )
+        b : StepB(priority:priority, getCondition().isC1() && getCondition().isC2() )
     then
         //actions
         b.execute();
