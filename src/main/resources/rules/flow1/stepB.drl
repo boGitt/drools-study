@@ -1,0 +1,34 @@
+//created on: 2018-5-30
+package flow1.stepB
+
+//list any import classes here.
+import com.sample.step.b.StepB;
+
+
+//declare any global variables here
+
+
+
+
+rule "with StepB or"
+salience 101001011
+    when
+        //conditions
+        b : StepB( getCondition().isC1() || getCondition().isC2() )
+    then
+        //actions
+        b.execute();
+
+end
+
+
+rule "with StepB and"
+salience 101001011
+    when
+        //conditions
+        b : StepB( getCondition().isC1() && getCondition().isC2() )
+    then
+        //actions
+        b.execute();
+
+end

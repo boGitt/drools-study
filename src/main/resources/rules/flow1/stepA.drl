@@ -1,0 +1,38 @@
+//created on: 2018-5-30
+package flow1.stepA
+
+//list any import classes here.
+import com.sample.step.a.StepA;
+
+
+//declare any global variables here
+
+
+
+
+rule "with StepA"
+lock-on-active true
+salience 101001021
+    when
+        //conditions
+        a : StepA( getCondition().getResult() )
+    then
+        //actions
+        a.execute();
+
+end
+
+rule "StepA wired a author"
+lock-on-active true
+salience 101001021
+    //include attributes such as "salience" here...
+    when
+        //conditions
+        a : StepA( getCondition().getParam1() == 2 )
+    then
+        //actions
+        a.setAuthor("Sencd");
+        update(a);
+        a.execute();
+
+end
